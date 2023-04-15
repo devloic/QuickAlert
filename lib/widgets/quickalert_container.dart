@@ -80,19 +80,22 @@ class QuickAlertContainer extends StatelessWidget {
 
     if (options!.customAsset != null) {
       anim = options!.customAsset;
+
+      return Container(
+        width: double.infinity,
+        height: 150,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.5),
+        ),
+        child: Image.asset(
+          anim ?? "",
+          fit: BoxFit.cover,
+        ),
+      );
+    } else {
+      return const SizedBox.shrink();
     }
-    return Container(
-      width: double.infinity,
-      height: 150,
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.5),
-      ),
-      child: Image.asset(
-        anim ?? "",
-        fit: BoxFit.cover,
-      ),
-    );
   }
 
   Widget buildTitle(context) {
